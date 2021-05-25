@@ -65,7 +65,7 @@ HulC <- function(data, estimate, alpha = 0.05, Delta = 0, dim = 1, randomize = T
 		foo <- function(dat){
 			estimate(dat)[idx]
 		}
-		CI[idx,] <- HulC1d(data, foo, alpha = 0.05/dim, Delta = Delta[idx], randomize = randomize)$CI
+		CI[idx,] <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)$CI
 	}
 	ret <- list(CI = CI, median.bias = Delta)
 	return(ret)
@@ -169,7 +169,7 @@ unimodal_HulC <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, ra
 		foo <- function(dat){
 			estimate(dat)[idx]
 		}
-		CI[idx,] <- unimodal_HulC1d(data, foo, alpha = 0.05/dim, Delta = Delta[idx], t = t, randomize = randomize)$CI
+		CI[idx,] <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize)$CI
 	}
 	ret <- list(CI = CI, median.bias = Delta)
 	return(ret)
@@ -200,7 +200,7 @@ adaptive_unimodal_HulC <- function(data, estimate, alpha = 0.05, t = 0.1, dim = 
 			estimate(dat)[idx]
 		}
 		Delta[idx] <- subsamp_median_bias(data, foo, subsamp_exp = subsamp_exp, nsub = nsub)
-		CI[idx,] <- unimodal_HulC1d(data, foo, alpha = 0.05/dim, Delta = Delta[idx], t = 0.1, randomize = randomize)$CI
+		CI[idx,] <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = 0.1, randomize = randomize)$CI
 	}
 	ret <- list(CI = CI, median.bias = Delta)
 	return(ret)
