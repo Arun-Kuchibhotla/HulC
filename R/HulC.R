@@ -56,9 +56,9 @@ HulC1d <- function(data, estimate, alpha = 0.05, Delta = 0, randomize = TRUE){
 ##		splits is used.
 HulC <- function(data, estimate, alpha = 0.05, Delta = 0, dim = 1, randomize = TRUE){
 	data <- as.matrix(data)
-	if(!is.vector(Delta)){
-		Delta <- Delta*rep(1, dim)
-	}
+  if(length(Delta) == 1){
+    Delta <- Delta*rep(1, dim)
+  }
 	CI <- matrix(0, nrow = dim, ncol = 2)
 	colnames(CI) <- c("lwr", "upr")
 	for(idx in 1:dim){
@@ -160,9 +160,9 @@ unimodal_HulC1d <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, 
 ##		splits is used.
 unimodal_HulC <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, randomize = TRUE){
 	data <- as.matrix(data)
-	if(!is.vector(Delta)){
-		Delta <- Delta*rep(1, dim)
-	}	
+	if(length(Delta) == 1){
+	  Delta <- Delta*rep(1, dim)
+	}
 	CI <- matrix(0, nrow = dim, ncol = 2)
 	colnames(CI) <- c("lwr", "upr")
 	for(idx in 1:dim){
