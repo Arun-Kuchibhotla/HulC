@@ -35,7 +35,7 @@ HulC1d <- function(data, estimate, alpha = 0.05, Delta = 0, randomize = TRUE){
 	}
 	CI <- range(ci_est)
 	names(CI) <- c("lwr", "upr")
-	ret <- list(CI = CI, median.bias = Delta)
+	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
 }
 
@@ -60,14 +60,23 @@ HulC <- function(data, estimate, alpha = 0.05, Delta = 0, dim = 1, randomize = T
     Delta <- Delta*rep(1, dim)
   }
 	CI <- matrix(0, nrow = dim, ncol = 2)
+	B <- rep(0, dim)
 	colnames(CI) <- c("lwr", "upr")
 	for(idx in 1:dim){
 		foo <- function(dat){
 			estimate(dat)[idx]
 		}
-		CI[idx,] <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)$CI
+		tryCatch(
+			hulc_idx <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)
+			CI[idx,] <- hulc_idx$CI
+			B[idx] <- hulc_idx$B
+      error = function(e){
+        CI[idx,] <- c(NA, NA)
+        B[idx] <- NA
+      }
+    )
 	}
-	ret <- list(CI = CI, median.bias = Delta)
+	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
 }
 
@@ -89,15 +98,24 @@ adaptive_HulC <- function(data, estimate, alpha = 0.05, dim = 1, subsamp_exp = 2
 	data <- as.matrix(data)
 	CI <- matrix(0, nrow = dim, ncol = 2)
 	colnames(CI) <- c("lwr", "upr")
+	B <- rep(0, dim)
 	Delta <- rep(0, dim)
 	for(idx in 1:dim){
 		foo <- function(dat){
 			estimate(dat)[idx]
 		}
 		Delta[idx] <- subsamp_median_bias(data, foo, subsamp_exp = subsamp_exp, nsub = nsub)
-		CI[idx,] <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)$CI
+		tryCatch(
+			hulc_idx <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)
+			CI[idx,] <- hulc_idx$CI
+			B[idx] <- hulc_idx$B
+      error = function(e){
+        CI[idx,] <- c(NA, NA)
+        B[idx] <- NA
+      }
+    )
 	}
-	ret <- list(CI = CI, median.bias = Delta)
+	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
 }
 
@@ -117,7 +135,7 @@ unimodal_HulC1d <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, 
 	data <- as.matrix(data)
 	nn <- nrow(data)
 	data <- data[sample(nn),,drop=FALSE]
-	B1 <- solve_for_B(alpha = alpha, Delta = Delta, t = 0.1)
+	B1 <- solve_for_B(alpha = alpha, Delta = Delta, t = t)
 	B <- B1
 	if(randomize){
 		p1 <- ((1/2 - Delta)^B1 + (1/2 + Delta)^B1)*(1 + t)^(-B1 + 1)
@@ -139,7 +157,7 @@ unimodal_HulC1d <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, 
 	CI <- range(ci_est)
 	CI <- CI + t*diff(CI)*c(-1, 1)
 	names(CI) <- c("lwr", "upr")
-	ret <- list(CI = CI, median.bias = Delta)
+	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
 }
 
@@ -158,20 +176,29 @@ unimodal_HulC1d <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, 
 ## randomize is a logical. If TRUE then the number of splits
 ## 		is randomized. If FALSE, then the larger number of
 ##		splits is used.
-unimodal_HulC <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, randomize = TRUE){
+unimodal_HulC <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, dim = 1, randomize = TRUE){
 	data <- as.matrix(data)
 	if(length(Delta) == 1){
 	  Delta <- Delta*rep(1, dim)
 	}
 	CI <- matrix(0, nrow = dim, ncol = 2)
 	colnames(CI) <- c("lwr", "upr")
+	B <- rep(0, dim)
 	for(idx in 1:dim){
 		foo <- function(dat){
 			estimate(dat)[idx]
 		}
-		CI[idx,] <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize)$CI
+		tryCatch(
+			hulc_idx <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize)
+			CI[idx,] <- hulc_idx$CI
+			B[idx] <- hulc_idx$B
+      error = function(e){
+        CI[idx,] <- c(NA, NA)
+        B[idx] <- NA
+      }
+    )		
 	}
-	ret <- list(CI = CI, median.bias = Delta)
+	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
 }
 
@@ -200,7 +227,15 @@ adaptive_unimodal_HulC <- function(data, estimate, alpha = 0.05, t = 0.1, dim = 
 			estimate(dat)[idx]
 		}
 		Delta[idx] <- subsamp_median_bias(data, foo, subsamp_exp = subsamp_exp, nsub = nsub)
-		CI[idx,] <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = 0.1, randomize = randomize)$CI
+		tryCatch(
+			hulc_idx <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize)
+			CI[idx,] <- hulc_idx$CI
+			B[idx] <- hulc_idx$B
+      error = function(e){
+        CI[idx,] <- c(NA, NA)
+        B[idx] <- NA
+      }
+    )			
 	}
 	ret <- list(CI = CI, median.bias = Delta)
 	return(ret)
