@@ -67,14 +67,13 @@ HulC <- function(data, estimate, alpha = 0.05, Delta = 0, dim = 1, randomize = T
 			estimate(dat)[idx]
 		}
 		tryCatch(
-			hulc_idx <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)
-			CI[idx,] <- hulc_idx$CI
-			B[idx] <- hulc_idx$B
+			hulc_idx <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize),
       error = function(e){
-        CI[idx,] <- c(NA, NA)
-        B[idx] <- NA
+        hulc_idx <- list(CI = c(NA, NA), B = NA)
       }
     )
+		CI[idx,] <- hulc_idx$CI
+		B[idx] <- hulc_idx$B
 	}
 	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
@@ -106,14 +105,13 @@ adaptive_HulC <- function(data, estimate, alpha = 0.05, dim = 1, subsamp_exp = 2
 		}
 		Delta[idx] <- subsamp_median_bias(data, foo, subsamp_exp = subsamp_exp, nsub = nsub)
 		tryCatch(
-			hulc_idx <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize)
-			CI[idx,] <- hulc_idx$CI
-			B[idx] <- hulc_idx$B
+			hulc_idx <- HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], randomize = randomize),
       error = function(e){
-        CI[idx,] <- c(NA, NA)
-        B[idx] <- NA
+        hulc_idx <- list(CI = c(NA, NA), B = NA)
       }
     )
+		CI[idx,] <- hulc_idx$CI
+		B[idx] <- hulc_idx$B		
 	}
 	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
@@ -189,14 +187,13 @@ unimodal_HulC <- function(data, estimate, alpha = 0.05, Delta = 1/2, t = 0.1, di
 			estimate(dat)[idx]
 		}
 		tryCatch(
-			hulc_idx <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize)
-			CI[idx,] <- hulc_idx$CI
-			B[idx] <- hulc_idx$B
-      error = function(e){
-        CI[idx,] <- c(NA, NA)
-        B[idx] <- NA
+			hulc_idx <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize),      
+			error = function(e){
+        hulc_idx <- list(CI = c(NA, NA), B = NA)
       }
-    )		
+    )
+		CI[idx,] <- hulc_idx$CI
+		B[idx] <- hulc_idx$B
 	}
 	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
@@ -222,21 +219,21 @@ adaptive_unimodal_HulC <- function(data, estimate, alpha = 0.05, t = 0.1, dim = 
 	CI <- matrix(0, nrow = dim, ncol = 2)
 	colnames(CI) <- c("lwr", "upr")
 	Delta <- rep(0, dim)
+	B <- rep(0, dim)
 	for(idx in 1:dim){
 		foo <- function(dat){
 			estimate(dat)[idx]
 		}
 		Delta[idx] <- subsamp_median_bias(data, foo, subsamp_exp = subsamp_exp, nsub = nsub)
 		tryCatch(
-			hulc_idx <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize)
-			CI[idx,] <- hulc_idx$CI
-			B[idx] <- hulc_idx$B
+			hulc_idx <- unimodal_HulC1d(data, foo, alpha = alpha/dim, Delta = Delta[idx], t = t, randomize = randomize),
       error = function(e){
-        CI[idx,] <- c(NA, NA)
-        B[idx] <- NA
+        hulc_idx <- list(CI = c(NA, NA), B = NA)
       }
-    )			
+    )		
+		CI[idx,] <- hulc_idx$CI
+		B[idx] <- hulc_idx$B		
 	}
-	ret <- list(CI = CI, median.bias = Delta)
+	ret <- list(CI = CI, median.bias = Delta, B = B)
 	return(ret)
 }
