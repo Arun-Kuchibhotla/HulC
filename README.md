@@ -1,5 +1,4 @@
 # HulC: Hull based confidence regions
-![](Hulk.png)
 <p align="center">
   <img src="Hulk.png?raw=true" alt="HulC"/>
 </p>
