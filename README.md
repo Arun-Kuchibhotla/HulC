@@ -1,5 +1,8 @@
 # HulC: Hull based confidence regions
 ![](Hulk.png)
+<p align="center">
+  <img src="Hulk.png?raw=true" alt="HulC"/>
+</p>
 
 We provide an introduction to the general purpose method of construction confidence intervals called HulC (Hull based confidence regions). HulC is developed by [Kuchibhotla, Balakrishnan and Wasserman (2021)](https://arxiv.org/abs/2105.14577). On this page, we provide both R and python implementations of the HulC method as well as reproducible code to obtain the plots and tables in the paper. This page also contains more illustrations of the method beyond those given in the paper. 
 
