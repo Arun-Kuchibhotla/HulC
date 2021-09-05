@@ -6,7 +6,7 @@ source("auxiliary_functions.R")
 ## 			outputs an approximate confidence interval as a vector,
 ## 		alpha is a scalar input that represents the nomianl miscoverage error needed.	
 
-ci_to_est_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha){
+ci_to_est_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha, randomize = TRUE){
 	data <- as.matrix(data)
 	nn <- nrow(data)
 	data <- data[sample(nn),,drop=FALSE]
@@ -39,7 +39,7 @@ ci_to_est_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha){
 	return(ret)	
 }
 
-ci_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha){
+ci_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha, randomize = TRUE){
 	data <- as.matrix(data)
 	nn <- nrow(data)
 	data <- data[sample(nn),,drop=FALSE]
@@ -72,3 +72,12 @@ ci_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha){
 	ret <- list(CI = CI, given_cis = ci_list, B = B)
 	return(ret)		
 }
+
+### Example using Wald intervals
+ci <- function(x, gamma = 0.05){
+	a <- mean(x)
+	b <- sd(x)/sqrt(length(x))
+	quant <- -qnorm(gamma/2)
+	return(c(a - quant*b, a + quant*b))
+}
+
