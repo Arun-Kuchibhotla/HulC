@@ -73,11 +73,21 @@ ci_to_hulc <- function(data, ci, alpha = 0.05, gamma = alpha, randomize = TRUE){
 	return(ret)		
 }
 
-### Example using Wald intervals
-ci <- function(x, gamma = 0.05){
-	a <- mean(x)
-	b <- sd(x)/sqrt(length(x))
-	quant <- -qnorm(gamma/2)
-	return(c(a - quant*b, a + quant*b))
-}
+# ### Example using Wald intervals
+# ci <- function(x, gamma = 0.05){
+# 	a <- mean(x)
+# 	b <- sd(x)/sqrt(length(x))
+# 	quant <- -qnorm(gamma/2)
+# 	return(c(a - quant*b, a + quant*b))
+# }
 
+# x <- rnorm(1000)
+# ci_to_est_to_hulc(x, ci, alpha = 0.05, gamma = alpha)
+# ci_to_est_to_hulc(x, ci, alpha = 0.05, gamma = 1/sqrt(length(x)))
+# ### Comparing to the wald interval on full data
+# ci(x, gamma = 0.05)
+
+# ci_to_hulc(x, ci, alpha = 0.05, gamma = 2*alpha)
+# ci_to_hulc(x, ci, alpha = 0.05, gamma = 10*alpha)
+# ### Comparing to the wald interval on full data
+# ci(x, gamma = 0.05)
