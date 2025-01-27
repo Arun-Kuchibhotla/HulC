@@ -14,7 +14,7 @@ We compare confidence intervals for linear and logistic regression using the fol
 # Simulation details
 
 
-In a simulation study, we assess the utility of HulC by comparing confidence regions for $\boldsymbol{\theta}_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $\mathbf{X}_i \in \mathbb{R}^d$, $\mathbf{X}_i \sim N(\boldsymbol{\mu}, \Sigma)$, where $\boldsymbol{\mu}^\top = [1,0, \dots,0]$ and 
+In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $\mathbf{X}_i \in \mathbb{R}^d$, $\mathbf{X}_i \sim N(\boldsymbol{\mu}, \Sigma)$, where $\boldsymbol{\mu}^\top = [1,0, \dots,0]$ and 
 \begin{align*}
     \Sigma = \begin{bmatrix}
 0 & \boldsymbol{0}^\top \\
