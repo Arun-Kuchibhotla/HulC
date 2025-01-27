@@ -1,0 +1,15 @@
+numpy
+matplotlib
+seaborn
+spyder
+pandas
+matplotlib
+scipy
+sklearn
+scikit-learn
+statsmodels
+datetime
+timeit
+copy
+os
+warnings
