@@ -14,14 +14,7 @@ We compare confidence intervals for linear and logistic regression using the fol
 # Simulation details
 
 
-In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $\mathbf{X}_i \in \mathbb{R}^d$, $\mathbf{X}_i \sim N(\boldsymbol{\mu}, \Sigma)$, where $\boldsymbol{\mu}^\top = [1,0, \dots,0]$ and 
-\begin{align*}
-    \Sigma = \begin{bmatrix}
-0 & \boldsymbol{0}^\top \\
-\boldsymbol{0} & \Sigma^{(22)}
-\end{bmatrix},
-\end{align*}
-in which $\Sigma^{(22)} \in \mathbb{R}^{(d-1)\times (d-1)}$ is either the identity matrix, a Toeplitz matrix ($\Sigma^{(22)}_{i,j} = 0.5^{|i-j|}$), or an equicorrelation  matrix ($\Sigma^{(22)}_{i,i}=1$, $\Sigma^{(22)}_{i,j} = 0.2$ for $i\ne j$).
+In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $X_i \in \mathbb{R}^d$, $X_i \sim N(\mu, \Sigma)$, where $\mu^\top = [1,0, \dots,0]$ and $\Sigma$ is either the identity, Toeplitz, or Equicorrelation. 
 
 Mimicking simulations by [Chen et al (2016)](https://arxiv.org/abs/1610.08637), we consider dimension sizes $d=5, 20, 100$ and the three types of covariance schemes. For linear regression, the noise parameter is $\varepsilon \sim N(0, 1)$, that is, $Y_i = \boldsymbol{\theta}_{\infty}^\top \mathbf{X}_i + \varepsilon_i$ for $i \in \{1, \dots, n\}$.  For logistic regression, $Y_i \overset{iid}{\sim} \text{Bernoulli}(p_i)$, where $p_i := \frac{1}{1+\exp\{-\boldsymbol{\theta}_{\infty}^\top \mathbf{X}_i\}}$. In both cases, the parameter $\boldsymbol{\theta}_{\infty}$ consists of coordinates that are linearly spaced between 0 and 1. For example, if $d=5$, then $\boldsymbol{\theta}_{\infty} = [0, 0.25, 0.5, 0.75, 1]^\top$.
 
