@@ -107,10 +107,12 @@ Note that you can also open Spyder or VS code directly and use point-and-click m
 	- **ASGD_HulC_manual.py**: Contains functions that produce confidence intervals for parameter $\boldsymbol{\theta}_{\infty} \in \mathbb{R}^d$ according to the four techniques being studied (sandwich estimator, ASGD plug-in, HulC, and t-stat).
     - **hulc_batches.py**: Contains helper functions for producing the [HulC confidence intervals](https://arxiv.org/abs/2105.14577)
     - **HulC_example_figures.py**: This file generates linear & logistic regression data in multiple dimensions and performs ASGD for example figures. The goal is to show that ASGD accuracy is sensitive to hyperparameter c.
-    - 
+
 
 # How to run the simulations.
 
 
 
-1. Open **OLS_logistic_simulations_cgrid_new.py**.
+1. Adjust the working directory in the preambles of **ASGD_HulC_manual.py** and **regression_simulations.py**.
+
+2. Open **regression_simulations.py** and follow the instructions in the preamble.
