@@ -16,7 +16,7 @@ We compare confidence intervals for linear and logistic regression using the fol
 
 In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $X_i \in \mathbb{R}^d$, $X_i \sim N(\mu, \Sigma)$, where $\mu^\top = [1,0, \dots,0]$ and $\Sigma$ is either the identity, Toeplitz, or Equicorrelation. 
 
-The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/ASGD-HulCsimulationsOLSandlogisticregression/Coverageandwidthratio).
+**The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/ASGD-HulCsimulationsOLSandlogisticregression/Coverageandwidthratio).**
 
 
 Mimicking simulations by [Chen et al (2016)](https://arxiv.org/abs/1610.08637), we consider dimension sizes $d=5, 20, 100$ and the three types of covariance schemes. For linear regression, the noise parameter is $\varepsilon \sim N(0, 1)$, that is, $Y_i = \theta_{\infty}^\top X_i + \varepsilon_i$ for $i = 1, \dots, n$.  For logistic regression, $Y_i \sim^{iid} \text{Bernoulli}(p_i)$, where $p_i := \frac{1}{1+\exp\{-\theta_{\infty}^\top X_i\}}$. In both cases, the parameter $\theta_{\infty}$ consists of coordinates that are linearly spaced between 0 and 1. For example, if $d=5$, then $\theta_{\infty} = [0, 0.25, 0.5, 0.75, 1]^\top$.
