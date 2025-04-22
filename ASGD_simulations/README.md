@@ -16,7 +16,6 @@ We compare confidence intervals for linear and logistic regression using the fol
 
 In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $X_i \in \mathbb{R}^d$, $X_i \sim N(\mu, \Sigma)$, where $\mu^\top = [1,0, \dots,0]$ and $\Sigma$ is either the identity, Toeplitz, or Equicorrelation. 
 
-**The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/ASGD-HulCsimulationsOLSandlogisticregression/Coverageandwidthratio).**
 
 
 Mimicking simulations by [Chen et al (2016)](https://arxiv.org/abs/1610.08637), we consider dimension sizes $d=5, 20, 100$ and the three types of covariance schemes. For linear regression, the noise parameter is $\varepsilon \sim N(0, 1)$, that is, $Y_i = \theta_{\infty}^\top X_i + \varepsilon_i$ for $i = 1, \dots, n$.  For logistic regression, $Y_i \sim^{iid} \text{Bernoulli}(p_i)$, where $p_i := \frac{1}{1+\exp\{-\theta_{\infty}^\top X_i\}}$. In both cases, the parameter $\theta_{\infty}$ consists of coordinates that are linearly spaced between 0 and 1. For example, if $d=5$, then $\theta_{\infty} = [0, 0.25, 0.5, 0.75, 1]^\top$.
@@ -28,6 +27,8 @@ We compare coverage of four inference techniques:
 - t-statistic on ASGD estimators.
 
 We aim to achieve the theoretical 95% coverage rate as we vary the sample size $n = 10^3, 10^4, 5\cdot 10^4, 10^5$, the dimension size $d$, the type of covariance matrix, and the hyperparameter $c$ in the ASGD step size $\eta_t = ct^{-0.505}$. In each run of $200$ independent experiments, we first generate the data. Given the data, we fix $c$ from a grid of values and record the coverage and width ratios for each inference technique; specifically, we check whether the $k$-th coordinate of the parameter, $\theta_{\infty (k)}$, falls within the corresponding confidence interval $CI_{(k)}$, assigning a value of $1$ if $\theta_{\infty (k)} \in \text{CI}_{(k)}$ and $0$ otherwise. The estimated coverage is then calculated as the proportion of the $200$ experiments in which the parameter was covered, with a target of approximately 95% (equivalent to $190$ out of $200$ independent instances of coverage). 
+
+**The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/ASGD-HulCsimulationsOLSandlogisticregression/Coverageandwidthratio).**
 
 ---
 
