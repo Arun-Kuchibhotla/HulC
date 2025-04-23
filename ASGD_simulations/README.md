@@ -14,7 +14,7 @@ We compare confidence intervals for linear and logistic regression using the fol
 # Simulation details
 
 
-In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $X_i \in \mathbb{R}^d$, $X_i \sim N(\mu, \Sigma)$, where $\mu^\top = [1,0, \dots,0]$ and $\Sigma$ is either the identity, Toeplitz, or Equicorrelation. 
+In a simulation study, we assess the utility of HulC by comparing confidence regions for $\theta_{\infty} \in \mathbb{R}^d$ on two simple cases: linear regression and logistic regression. In both cases, we generate $n$ iid samples $X_i \in \mathbb{R}^d$, $X_i \sim N(\mu, \Sigma)$, where $\mu^\top = [1,0, \dots,0]$ and $\Sigma$ is either the identity, Toeplitz ($\Sigma_{ij}=0.5^{|i-j|}$), or Equicorrelation ($\Sigma_{ii}=1$, $\Sigma_{ij}=0.2$ if $i\ne j$, ). 
 
 
 
@@ -30,7 +30,20 @@ We aim to achieve the theoretical 95% coverage rate as we vary the sample size $
 
 **The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/ASGD-HulCsimulationsOLSandlogisticregression/Coverageandwidthratio).**
 
+The following four plots display coverage and width ratios as a function of step size hyperparameter $c$ for linear and logistic regression (Toeplitz covariance) and dimension sizes $d=5$ and $d=100$.
+
+
+<img src="https://github.com/user-attachments/assets/a8caa4de-2346-4d77-8914-2a39c79624da" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/user-attachments/assets/5b3520b6-784c-4c39-9df5-5b89a39464de" alt="Linear regression dim 100" style="width:50%; height:auto;">
 ---
+<img src="https://github.com/user-attachments/assets/678d4211-efda-4503-8e28-2a3010d94ccf" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/user-attachments/assets/f540867a-0697-4dcd-befe-8f04f1062a09" alt="Linear regression dim 100" style="width:50%; height:auto;">
+---
+
+## Main observations:
+
+<img src="https://github.com/user-attachments/assets/ea31a3a4-c88f-44b6-960f-e56377ccc9c1" alt="Main obs" style="width:50%; height:auto;">
+
+<img src="https://github.com/user-attachments/assets/e1acf224-47b8-4f2a-8f63-79eb5d674405" alt="Takeaway" style="width:100%; height:auto;">
+
 
 # Setup
 
