@@ -45,6 +45,8 @@ The following four plots display coverage and width ratios as a function of step
 <img src="https://github.com/user-attachments/assets/e1acf224-47b8-4f2a-8f63-79eb5d674405" alt="Takeaway" style="width:100%; height:auto;">
 
 
+Acknowedgement: We thank [Kenta Takatsu](https://kenta426.github.io/) for his feedback on these results and for sharing insights from a [lecture by John Duchi](https://www.youtube.com/watch?v=BtLmQW7cT8k&t=4069s).
+
 # Setup
 
 ## Running for the first time
