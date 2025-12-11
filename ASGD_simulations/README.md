@@ -28,7 +28,7 @@ We compare coverage of four inference techniques:
 
 We aim to achieve the theoretical 95% coverage rate as we vary the sample size $n = 10^3, 10^4, 5\cdot 10^4, 10^5$, the dimension size $d$, the type of covariance matrix, and the hyperparameter $c$ in the ASGD step size $\eta_t = ct^{-0.505}$. In each run of $200$ independent experiments, we first generate the data. Given the data, we fix $c$ from a grid of values and record the coverage and width ratios for each inference technique; specifically, we check whether the $k$-th coordinate of the parameter, $\theta_{\infty (k)}$, falls within the corresponding confidence interval $CI_{(k)}$, assigning a value of $1$ if $\theta_{\infty (k)} \in \text{CI}_{(k)}$ and $0$ otherwise. The estimated coverage is then calculated as the proportion of the $200$ experiments in which the parameter was covered, with a target of approximately 95% (equivalent to $190$ out of $200$ independent instances of coverage). 
 
-**The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/ASGD-HulCsimulationsOLSandlogisticregression/Coverageandwidthratio).**
+**The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/app/profile/selina.carter6629/viz/OnlineinferencesimulationsOLSandlogisticregression/Coverageandwidthratio_paper).**
 
 The following four plots display coverage and width ratios as a function of step size hyperparameter $c$ for linear and logistic regression (Toeplitz covariance) and dimension sizes $d=5$ and $d=100$.
 
@@ -135,3 +135,4 @@ Note that you can also open Spyder or VS code directly and use point-and-click m
 1. Adjust the working directory in the preambles of **ASGD_HulC_manual.py** and **regression_simulations.py**.
 
 2. Open **regression_simulations.py** and follow the instructions in the preamble.
+
