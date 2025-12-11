@@ -1,6 +1,6 @@
 # HulC using Averaged Stochastic Gradient Descent (ASGD)
 
-In the code provided, we run simulations corresponding to the paper "HulC using Averaged Sotchastic Gradient Descent (ASGD)" (to be published on ArXiv). 
+In the code provided, we run simulations corresponding to the paper ["Statistical Inference for Online Algorithms" (Carter and Kuchibhotla)](https://arxiv.org/html/2505.17300v1). 
 
 We compare confidence intervals for linear and logistic regression using the following four inference techniques:
 - robust sandwich confidence interval (as a baseline);
@@ -135,4 +135,5 @@ Note that you can also open Spyder or VS code directly and use point-and-click m
 1. Adjust the working directory in the preambles of **ASGD_HulC_manual.py** and **regression_simulations.py**.
 
 2. Open **regression_simulations.py** and follow the instructions in the preamble.
+
 
