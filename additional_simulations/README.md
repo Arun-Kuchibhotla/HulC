@@ -41,24 +41,50 @@ We compare confidence intervals for linear and logistic regression using the fol
 - [HulC](https://arxiv.org/abs/2105.14577) (based on one of the particular online algorithms listed below)
 - t-statistic (also based on same algorithm used by HulC)
 
-We aim to achieve the theoretical 95% coverage rate as we vary the sample size $n = 10^3, 10^4, 5\cdot 10^4, 10^5$, the dimension size $d$, the type of covariance matrix, and the hyperparameter $c$ in the ASGD step size $\eta_t = ct^{-0.505}$. In each run of $200$ independent experiments, we first generate the data. Given the data, we fix $c$ from a grid of values and record the coverage and width ratios for each inference technique; specifically, we check whether the $k$-th coordinate of the parameter, $\theta_{\infty (k)}$, falls within the corresponding confidence interval $CI_{(k)}$, assigning a value of $1$ if $\theta_{\infty (k)} \in \text{CI}_{(k)}$ and $0$ otherwise. The estimated coverage is then calculated as the proportion of the $200$ experiments in which the parameter was covered, with a target of approximately 95% (equivalent to $190$ out of $200$ independent instances of coverage). 
+We aim to achieve the theoretical 95% coverage rate as we vary the sample size $n = 10^3, 10^4, 5\cdot 10^4, 10^5$, the dimension size $d$, the type of covariance matrix, and the hyperparameter $c$ in the SGD step size $\eta_t = ct^{-0.505}$. In each run of $200$ independent experiments, we first generate the data. Given the data, we fix $c$ from a grid of values and record the coverage and width ratios for each inference technique; specifically, we check whether the $k$-th coordinate of the parameter, $\theta_{\infty (k)}$, falls within the corresponding confidence interval $CI_{(k)}$, assigning a value of $1$ if $\theta_{\infty (k)} \in \text{CI}_{(k)}$ and $0$ otherwise. The estimated coverage is then calculated as the proportion of the $200$ experiments in which the parameter was covered, with a target of approximately 95% (equivalent to $190$ out of $200$ independent instances of coverage). 
 
 **The results of these simulations are available in a [dynamic Tableau graph](https://public.tableau.com/views/OnlineinferencesimulationsOLSandlogisticregression/Coverageandwidthratio_paper?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link).**
 
 The following plots display coverage and width ratios as a function of step size hyperparameter $c$ for linear and logistic regression (Toeplitz covariance) and dimension sizes $d=5$ and $d=20$.
 
+### Averaged Implicit SGD (AI-SGD)
 
-<img src="https://github.com/user-attachments/assets/a8caa4de-2346-4d77-8914-2a39c79624da" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/user-attachments/assets/5b3520b6-784c-4c39-9df5-5b89a39464de" alt="Linear regression dim 100" style="width:50%; height:auto;">
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_AISGD_initTRUE.png" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_AISGD_initTRUE.png" alt="Linear regression dim 20" style="width:50%; height:auto;">
 ---
-<img src="https://github.com/user-attachments/assets/678d4211-efda-4503-8e28-2a3010d94ccf" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/user-attachments/assets/f540867a-0697-4dcd-befe-8f04f1062a09" alt="Linear regression dim 100" style="width:50%; height:auto;">
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_AISGD_initTRUE.png" alt="Logistic regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_AISGD_initTRUE.png" alt="Logistic regression dim 20" style="width:50%; height:auto;">
+---
+### Implicit SGD (I-SGD)
+
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_ISGD_initTRUE.png" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_ISGD_initTRUE.png" alt="Linear regression dim 20" style="width:50%; height:auto;">
+---
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_ISGD_initTRUE.png" alt="Logistic regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_ISGD_initTRUE.png" alt="Logistic regression dim 20" style="width:50%; height:auto;">
+---
+### Root SGD
+
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_rootSGD_initTRUE.png" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_rootSGD_initTRUE.png" alt="Linear regression dim 20" style="width:50%; height:auto;">
+---
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_rootSGD_initTRUE.png" alt="Logistic regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_rootSGD_initTRUE.png" alt="Logistic regression dim 20" style="width:50%; height:auto;">
+---
+### Truncated SGD
+
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" alt="Linear regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" alt="Linear regression dim 20" style="width:50%; height:auto;">
+---
+<img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" alt="Logistic regression dim 5" style="width:50%; height:auto;"><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" alt="Logistic regression dim 20" style="width:50%; height:auto;">
 ---
 
 ## Main observations:
 
-<img src="https://github.com/user-attachments/assets/ea31a3a4-c88f-44b6-960f-e56377ccc9c1" alt="Main obs" style="width:50%; height:auto;">
+- There is no single value of step size hyperparameter $c$ that works uniformly for all algorithms.
+- When the dimension size is large, most algorithms are quite sensitive to $c$.
+- The HulC and the t-stat methods generally produce correct coverage for appropriately chosen $c$.
+- HulC width ratios are only slightly larger than the t-stat width ratios across all settings -- around $10\%$ wider on average across all settings for which coverage is achieved.
+- As the sample size increases, the width ratios generally decrease, with the exception of implicit SGD (I-SGD).
+- For linear regression, the most reliable algorithm in terms of hyperparameter $c$ is averaged implicit SGD (AI-SGD). (In this case, across all values of $c \in [0.0005, 2]$, both the HulC and t-stat methods produce correct coverage and width ratios are less than $1.8$).
+- For logistic regression, achieving correct coverage is typically more challenging, but sometimes width ratios are smaller than for linear regression. (For example, using root SGD and truncated SGD, logistic regression produces smaller width ratios than linear regression).
 
 <img src="https://github.com/user-attachments/assets/e1acf224-47b8-4f2a-8f63-79eb5d674405" alt="Takeaway" style="width:100%; height:auto;">
 
+---
 
 Acknowedgement: We thank [Kenta Takatsu](https://kenta426.github.io/) for his feedback on these results and for sharing insights from a [lecture by John Duchi](https://www.youtube.com/watch?v=BtLmQW7cT8k&t=4069s).
 
