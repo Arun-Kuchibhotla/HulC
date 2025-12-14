@@ -170,85 +170,32 @@ Acknowedgement: We thank [Kenta Takatsu](https://kenta426.github.io/) for his fe
 
 # Setup
 
-## Running for the first time
+## Running the simulations for the first time.
 
-To make sure we have the same capabilities (e.g., same versions of packages), it's best to use an anaconda environment. If you
-are not familiar with conda you can read more about it [here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+Unlike the [ASGD simulations](https://github.com/Arun-Kuchibhotla/HulC/tree/main/ASGD_simulations), which are in python, these simulations are in R because we rely on the `sgd` package for most of the SGD functions (to our knowledge, averaged implicit SGD and implicit SGD packages are not avaialable in python).
+
+You don't need an Anaconda environment because the packages to install are contained in each R file.
 
 
 1. Clone the [HulC repository](https://github.com/Arun-Kuchibhotla/HulC). For cloning instructions, see [Git Hub Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). 
 
-2. On your PC, open your command prompt (e.g., Git Bash).
+2. On your PC, open the folder `HulC/additional_simulations/run_sims`.
 
-3. Change your working directory to the path of the Hulc repo. For example:
-`
-cd C:/Users/yourusername/Hulc/
-`
-
-4. In the command prompt, create a new conda environment (make sure you have already [installed Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html): 
-`
-conda create -n Hulc 
-`
-
-5. Activate the environment (from command prompt)
-`
-conda activate Hulc 
-`
-
-6. From the command prompt, install the required packages using pip: 
-
-`
-pip install -r requirements.txt
-`
-
-7. Open your preferred editor. I prefer [Spyder](https://www.spyder-ide.org/). You can open using the conda environment directly from Git Bash by typing
-`
-spyder
-`
-
-Or you can use VS Code, run:
-`
-code
-`
-Make sure the environment you created in step 5 is being used by editor. Note that you can also open Spyder or VS code directly and use point-and-click menu items to open the correct Anaconda environment.
+3. In R Studio, open additional_simsloop.R, and follow the instructions in the file. (If yi
 
 
 ## Running for the second+ time
 
-1. On your PC, open your command prompt (e.g., Git Bash).
-
-2. Change your working directory to the path of the Hulc repo.
-`
-cd C:/Users/yourusername/Hulc/
-`
-
-3. Activate the conda environment (from command prompt)
-`
-conda activate Hulc 
-`
-
-4. Open your preferred editor. I prefer [Spyder](https://www.spyder-ide.org/).
-`
-spyder
-`
-
-Or for VS Code, run:
-`
-code
-`
-
-Note that you can also open Spyder or VS code directly and use point-and-click menu items to open the correct Anaconda environment.
+Follow steps 2-3 above.
 
 
 # Description of files
 
 - **run_sims** directory:
-    - **regression_simulations.py**: This is the main file used to generate S=200 simulations. 
-    - **gen_data.py**: Generates data for linear and logistic regression.
-	- **ASGD_Chen_functions**: Contains gradient functions to perform linear and logistic regression via stochastic gradient descent, as well as a function to produce ASGD plug-in confidence intervals according to [Chen et al 2016](https://arxiv.org/abs/1610.08637)
-	- **ASGD_HulC_manual.py**: Contains functions that produce confidence intervals for parameter $\boldsymbol{\theta}_{\infty} \in \mathbb{R}^d$ according to the four techniques being studied (sandwich estimator, ASGD plug-in, HulC, and t-stat).
-    - **hulc_batches.py**: Contains helper functions for producing the [HulC confidence intervals](https://arxiv.org/abs/2105.14577)
-    - **HulC_example_figures.py**: This file generates linear & logistic regression data in multiple dimensions and performs ASGD for example figures. The goal is to show that ASGD accuracy is sensitive to hyperparameter c.
+    - **additional_sims.R**: This is the main file used to generate S=200 simulations for one particular setting.
+    - **additional_sims_loop.R**: This is the main file used to generate S=200 simulations for a loop over several settings.
+    - **gen_data.R**: Generates data for linear and logistic regression.
+	- **HulC_sgd_functions.R**: Contains functions that produce confidence intervals for parameter $\boldsymbol{\theta}_{\infty} \in \mathbb{R}^d$ the HulC algorithm.
 
 
 # How to run the simulations.
