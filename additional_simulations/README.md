@@ -180,12 +180,12 @@ are not familiar with conda you can read more about it [here](https://conda.io/p
 
 2. On your PC, open your command prompt (e.g., Git Bash).
 
-3. Change your working directory to the path of the Hulc repo.
+3. Change your working directory to the path of the Hulc repo. For example:
 `
 cd C:/Users/yourusername/Hulc/
 `
 
-4. In the command prompt, create a conda environment (make sure you have already [installed Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html): 
+4. In the command prompt, create a new conda environment (make sure you have already [installed Anaconda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html): 
 `
 conda create -n Hulc 
 `
@@ -201,15 +201,17 @@ conda activate Hulc
 pip install -r requirements.txt
 `
 
-5. Open your preferred editor. I prefer [Spyder](https://www.spyder-ide.org/).
+7. Open your preferred editor. I prefer [Spyder](https://www.spyder-ide.org/). You can open using the conda environment directly from Git Bash by typing
 `
 spyder
 `
 
-Or for VS Code, run:
+Or you can use VS Code, run:
 `
 code
 `
+Make sure the environment you created in step 5 is being used by editor. Note that you can also open Spyder or VS code directly and use point-and-click menu items to open the correct Anaconda environment.
+
 
 ## Running for the second+ time
 
