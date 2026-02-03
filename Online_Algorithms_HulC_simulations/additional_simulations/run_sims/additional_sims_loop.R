@@ -2,9 +2,9 @@
 #Change the following paths to your own local or remote working directories.
 local=T
 if (local){
-  setwd("C:/Users/selin/Dropbox/Hulc_simulations/hulc_simulations/HulC_R")
+  setwd("YOUR_LOCAL_PATH")
 } else{
-  setwd("/home/shcarter/Hulc/simulations/R_sims")
+  setwd("YOUR_CLOUD_PATH")
 }
 
 
@@ -38,5 +38,6 @@ for (method in method_vector){
     }
   }
 }
+
 
 
