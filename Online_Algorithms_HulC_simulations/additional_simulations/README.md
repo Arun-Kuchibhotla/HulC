@@ -8,12 +8,13 @@ We compare confidence intervals for linear and logistic regression using the fol
 - $t$-statistic (also based on same algorithm used by HulC)
  
 We run the following algorithms to estimate the parameter $\theta_{\infty} \in \mathbb{R}^d$:
-- Averaged-SGD (ASGD) - see summary [here](https://github.com/Arun-Kuchibhotla/HulC/tree/main/Online_Algorithms_HulC_simulations/ASGD_sims)
 - Average-iterate-implicit-SGD
 - Last-iterate-implicit-SGD
 - ROOT-SGD
 - Truncated-SGD
 - Noisy-truncated-SGD
+
+For Averaged-SGD (ASGD), see summary [here](https://github.com/Arun-Kuchibhotla/HulC/tree/main/Online_Algorithms_HulC_simulations/ASGD_sims)
 
 
 ---
