@@ -1,6 +1,6 @@
 # Additional SGD Methods
 
-In the code provided, we run simulations corresponding to the paper  ["Statistical Inference for Online Algorithms" (Carter and Kuchibhotla)](https://arxiv.org/abs/2105.14577). 
+In the code provided, we run simulations corresponding to the paper  ["Statistical Inference for Online Algorithms" (Carter and Kuchibhotla)](https://arxiv.org/abs/2505.17300). 
 
 We compare confidence intervals for linear and logistic regression using the following four inference techniques:
 - Wald-based robust sandwich confidence interval (as a baseline)
