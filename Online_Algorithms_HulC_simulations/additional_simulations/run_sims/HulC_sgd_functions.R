@@ -1,7 +1,7 @@
 
 #Adjust the working directory.
-your_wd = "C:/Users/selin/Dropbox/Hulc_simulations/hulc_simulations/HulC_R"
-your_wd_plots = "C:/Users/selin/Dropbox/Hulc_simulations/hulc_simulations/HulC_R/results"
+your_wd = ""
+your_wd_plots = ""
 
 packages_to_check <- c("tidyverse", "sgd", "latex2exp")
 installed_pkgs <- rownames(installed.packages())
@@ -992,4 +992,5 @@ if (compare_trajectories){
   
   
 }
+
 
