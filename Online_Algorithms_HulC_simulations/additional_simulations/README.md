@@ -56,8 +56,8 @@ The following plots display coverage and width ratios as a function of step size
     <th>Linear regression (diminsion = 20)0</th>
   </tr>
   <tr>
-    <td><img src="../assets/linear_D20_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="../assets/linear_D20_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
   </tr>
 </table>
 
