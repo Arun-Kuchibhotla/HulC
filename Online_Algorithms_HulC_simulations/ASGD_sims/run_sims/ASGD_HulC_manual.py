@@ -27,10 +27,7 @@ from matplotlib.lines import Line2D #Creates a custom legend in plots
 from datetime import datetime
 
 import os
-run_locally=True
-if run_locally:
-    os.chdir("C://Users//selin//Dropbox//Hulc_simulations//hulc_simulations//HulC_python//ASGD_simulations//run_sims")
-#os.chdir("//home//shcarter//Hulc//simulations//plots")
+
 
 import hulc_batches as hulc
 import ASGD_Chen_functions as chen  # contains: SGD_grad_linear(theta, x_i, y_i), 
@@ -920,6 +917,7 @@ def tstat_CI_logreg_manual(data, alpha, ytype = "neg11", output = "ASGD", c = .0
     t_CI = t_CI.transpose(1,0)
 
     return(t_CI)
+
 
 
 
