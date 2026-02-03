@@ -8,16 +8,14 @@ This file generates linear & logistic regression data in multiple dimensions
 and performs ASGD for example figures. The goal is to show that ASGD accuracy
 is sensitive to hyperparameter c.
 
+Change the path (to where you store all .py files) in line 18 before running.
 """
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D #Creates a custom legend in plots
 
 import os
-run_locally=True
-if run_locally:
-    os.chdir("C://Users//selin//Dropbox//Hulc_simulations//hulc_simulations//HulC_python//ASGD_simulations//run_sims")
-#os.chdir("//home//shcarter//Hulc//simulations//plots")
+os.chdir("YOUR_PATH")
 
 import gen_data as gld
 import ASGD_HulC_manual as ahm
@@ -401,3 +399,4 @@ for p in range(D):
             fontsize=10)
     plt.show()
     
+
