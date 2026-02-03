@@ -40,7 +40,7 @@ We run the following algorithms to estimate the parameter $\theta_{\infty} \in \
 We compare confidence intervals for linear and logistic regression using the following four inference techniques:
 - Wald-based robust sandwich confidence interval (as a baseline)
 - [HulC](https://arxiv.org/abs/2105.14577) (based on one of the particular online algorithms listed below)
-- t-statistic (also based on same algorithm used by HulC)
+- $t$-statistic (also based on same algorithm used by HulC)
 
 We aim to achieve the theoretical 95% coverage rate as we vary the sample size $n = 10^3, 10^4, 5\cdot 10^4, 10^5$, the dimension size $d$, the type of covariance matrix, and the hyperparameter $c$ in the SGD step size $\eta_t = ct^{-0.505}$. In each run of $200$ independent experiments, we first generate the data. Given the data, we fix $c$ from a grid of values and record the coverage and width ratios for each inference technique; specifically, we check whether the $k$-th coordinate of the parameter, $\theta_{\infty (k)}$, falls within the corresponding confidence interval $CI_{(k)}$, assigning a value of $1$ if $\theta_{\infty (k)} \in \text{CI}_{(k)}$ and $0$ otherwise. The estimated coverage is then calculated as the proportion of the $200$ experiments in which the parameter was covered, with a target of approximately 95% (equivalent to $190$ out of $200$ independent instances of coverage). 
 
@@ -182,12 +182,10 @@ The following plots display coverage and width ratios as a function of step size
 - There is no single value of step size hyperparameter $c$ that works uniformly for all algorithms.
 - Especially when the dimension size is large, most algorithms are quite sensitive to $c$.
 - The HulC and the $t$-stat methods generally produce correct coverage for appropriately chosen $c$.
-- HulC width ratios are only slightly larger than the t-stat width ratios across all settings -- around $10\%$ wider on average across all settings for which coverage is achieved.
-- As the sample size increases, the width ratios generally decrease, with the exception of last-iterate-implicit-SGD.
-- For linear regression, the most reliable algorithm in terms of hyperparameter $c$ is average-iterate-implicit-SGD. (In this case, across all values of $c \in [0.0005, 2]$, both the HulC and t-stat methods produce correct coverage and width ratios are less than $1.8$).
-- For logistic regression, achieving correct coverage is typically more challenging, but sometimes width ratios are smaller than for linear regression. (For example, using root SGD and truncated SGD, logistic regression produces smaller width ratios than linear regression).
-
-
+- HulC width ratios are only slightly larger than the $t$-stat width ratios across all settings -- around $10\%$ wider on average across all settings for which coverage is achieved.
+- As the sample size increases, width ratios can decrease or increase depending on the algorithm.
+- For linear regression, the most reliable algorithm in terms of hyperparameter $c$ is average-iterate-implicit-SGD. (In this case, across all values of $c \in [0.0005, 2]$, both the HulC and $t$-stat methods produce correct coverage and width ratios are less than $1.8$).
+- For logistic regression, achieving correct coverage is typically more challenging, but sometimes width ratios are smaller than for linear regression. (For example, using ROOT-SGD and truncated-SGD, logistic regression produces smaller width ratios than linear regression).
 
 ---
 
