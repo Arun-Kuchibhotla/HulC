@@ -14,9 +14,9 @@ for (pkg in packages_to_check) {
 #Change to your preferred local or remote working directories
 local=T
 if (local){
-  setwd("C:/Users/selin/Dropbox/Hulc_simulations/hulc_simulations/HulC_R")
+  setwd("YOUR_LOCAL_PATH")
 } else{
-  setwd("/home/shcarter/Hulc/simulations/R_sims")
+  setwd("YOUR_CLOUD_PATH")
 }
 
 
@@ -943,6 +943,7 @@ if (run_this){
            use_all_wald_estimates=T)
   
 }
+
 
 
 
