@@ -44,6 +44,8 @@ To run the full set of simulations, we recommend running multplie parallel
 sessions in cloud computing, where each session deals with one
  (model type, dimension, sample size) tuple.
 
+ Make sure you change the working directories in lines 61, 63.
+
 """
 import numpy as np
 import statsmodels.api as sm
@@ -56,9 +58,9 @@ import timeit #calculates runtime
 import os
 run_locally=True
 if run_locally:
-    os.chdir("C://Users//selin//Dropbox//Hulc_simulations//hulc_simulations//HulC_python//ASGD_simulations//run_sims")
+    os.chdir("YOUR_LOCAL_PATH")
 else:
-    os.chdir("//zfsauton2//home//shcarter//hulc")
+    os.chdir("YOUR_CLOUD_PATH")
 
 import gen_data as gld
 import ASGD_Chen_functions as chen  # contains: SGD_grad_linear(theta, x_i, y_i), 
@@ -1089,4 +1091,5 @@ if loop==True:
             run_sims(model_type, S, N, D, ytype, output, cov_type, alpha_level, XY_type, c_grid, alpha_lr, burn_in,\
                               burn_in_threshold, initializer, epochs_for_HulC, fixed_step, save_plots)  
     
+
     
