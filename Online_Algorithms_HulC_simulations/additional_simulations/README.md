@@ -48,7 +48,7 @@ We aim to achieve the theoretical 95% coverage rate as we vary the sample size $
 The following plots display coverage and width ratios as a function of step size hyperparameter $c$ for linear and logistic regression (Toeplitz covariance) and dimension sizes $d=5$ and $d=20$.
 
 
-### Averaged Implicit SGD (AI-SGD)
+### Average-iterate-implicit-SGD
 
 <table>
   <tr>
@@ -56,8 +56,8 @@ The following plots display coverage and width ratios as a function of step size
     <th>Linear regression (diminsion = 20)0</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_AISGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_AISGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
@@ -67,14 +67,14 @@ The following plots display coverage and width ratios as a function of step size
     <th>Logistic regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_AISGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_AISGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_AISGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
 ---
 
-### Implicit SGD (I-SGD)
+### Last-iterate-implicit-SGD
 
 <table>
   <tr>
@@ -82,8 +82,8 @@ The following plots display coverage and width ratios as a function of step size
     <th>Linear regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_ISGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_ISGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_ISGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_ISGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
@@ -93,14 +93,14 @@ The following plots display coverage and width ratios as a function of step size
     <th>Logistic regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_ISGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_ISGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_ISGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_ISGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
 ---
 
-### Root SGD
+### ROOT-SGD
 
 <table>
   <tr>
@@ -108,8 +108,8 @@ The following plots display coverage and width ratios as a function of step size
     <th>Linear regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_rootSGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_rootSGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_rootSGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_rootSGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
@@ -119,14 +119,14 @@ The following plots display coverage and width ratios as a function of step size
     <th>Logistic regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_rootSGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_rootSGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_rootSGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_rootSGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
 ---
 
-### Truncated SGD
+### Truncated-SGD
 
 <table>
   <tr>
@@ -134,8 +134,8 @@ The following plots display coverage and width ratios as a function of step size
     <th>Linear regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_truncatedSGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_truncatedSGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
@@ -145,12 +145,36 @@ The following plots display coverage and width ratios as a function of step size
     <th>Logistic regression (dimension = 20)</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_truncatedSGD_initTRUE.pdf" width="100%"></td>
-    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_truncatedSGD_initTRUE.pdf" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_truncatedSGD_initTRUE.png" width="100%"></td>
   </tr>
 </table>
 
----
+
+### Noisy-truncated-SGD
+
+<table>
+  <tr>
+    <th>Linear regression (dimension = 5)</th>
+    <th>Linear regression (dimension = 20)</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D5_Toeplitz_cov_wr_noisytruncatedSGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/linear_D20_Toeplitz_cov_wr_noisytruncatedSGD_initTRUE.png" width="100%"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Logistic regression (dimension = 5)</th>
+    <th>Logistic regression (dimension = 20)</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D5_Toeplitz_cov_wr_noisytruncatedSGD_initTRUE.png" width="100%"></td>
+    <td><img src="https://github.com/Arun-Kuchibhotla/HulC/blob/main/Online_Algorithms_HulC_simulations/additional_simulations/assets/logistic_D20_Toeplitz_cov_wr_noisytruncatedSGD_initTRUE.png" width="100%"></td>
+  </tr>
+</table>
+
 
 ## Main observations:
 
